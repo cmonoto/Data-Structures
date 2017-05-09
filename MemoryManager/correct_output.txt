@@ -1,0 +1,52 @@
+heap initialized
+Here is the block list
+
+-------------BlockList start------------------
+[2048,free] 
+-------------BlockList end------------------
+
+Executing p1 = malloc(10):
+malloc done
+Here is the block list
+
+-------------BlockList start------------------
+[10,allocated]  -> [2038,free] 
+-------------BlockList end------------------
+
+Executing p2 = malloc(20):
+malloc done
+Here is the block list
+
+-------------BlockList start------------------
+[10,allocated]  -> [20,allocated]  -> [2018,free] 
+-------------BlockList end------------------
+
+Executing free(p1):
+Here is the block list
+
+-------------BlockList start------------------
+[10,free]  -> [20,allocated]  -> [2018,free] 
+-------------BlockList end------------------
+
+Now do a malloc for a block too big for the initial open block
+Executing p1 = malloc(15)
+malloc done
+Here is the block list
+
+-------------BlockList start------------------
+[10,free]  -> [20,allocated]  -> [15,allocated]  -> [2003,free] 
+-------------BlockList end------------------
+
+Next free the most recently allocated pointer (p1)
+Here is the block list
+
+-------------BlockList start------------------
+[10,free]  -> [20,allocated]  -> [2018,free] 
+-------------BlockList end------------------
+
+Next free p2
+Here is the block list
+-------------BlockList start------------------
+[2048,free] 
+
+-------------BlockList end------------------
